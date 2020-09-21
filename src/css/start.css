@@ -1,0 +1,55 @@
+.start.screen, .game-screen {
+    transition: 1s;
+
+    background-image: url('../assets/img/bg/background.svg');
+    background-size: cover;
+}
+
+.start .logo {
+    width: 55%;
+    transition: all 1s;
+
+    position: absolute;
+    top: 5vh;
+}
+
+.game-logo {
+    opacity: 1;
+    width: 90vw;
+    transition: all 1s;
+}
+
+.start .text {
+    height: auto;
+    justify-content: center;
+}
+
+.start .title {
+    font-size: 3.8em;
+    width: 90vw;
+}
+
+.start .info {
+    width: 80vw;
+    font-size: 3em;
+}
+
+.start.screen .bits-btn {
+    position: absolute;
+    bottom: 25vw;
+    animation: floating 1.3s infinite forwards;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(70px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,39 @@
+:root {
+    --font-size: 3em;
+    --button-size: 1em;
+    --button-width: .1em;
+}
+
+.bits-btn {
+    height: 0px;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size);
+    cursor: pointer;
+    line-height: 0;
+    border: calc(var(--button-size) - 1px) solid;
+}
+
+.bits-btn span{
+    padding: var(--button-size) var(--button-width);
+    background-origin: padding-box;
+    background-clip: border-box;
+}
+
+.bits-btn.green {
+    border-image: url('../assets/img/buttons/border-green.svg') 50% stretch;
+}
+
+.bits-btn.green span{
+    background-image: url('../assets/img/buttons/button-green.svg');
+    background-size: contain;
+}
+
+.bits-btn.yellow {
+    border-image: url('../assets/img/buttons/border-yellow.svg') 50% stretch;
+}
+
+.bits-btn.yellow span{
+    background-image: url('../assets/img/buttons/button-yellow.svg');
+    background-size: contain;
+}
