@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Games</title>
+        <link rel="stylesheet" href="./src/css/styles.css">
+    </head>
+    <body>
+        <main class="screen-container">
+            <section class="wait screen">
+                <img class="logo" src="./src/assets/img/logo/sesi-senai-logo.svg" alt="logo">
+                <img class="game-logo" src="./src/assets/img/logo/game-logo.svg" alt="game logo">
+                <div class="text">
+                    <h3 class="title">antes de começar...</h3>
+                    <p class="info">higienize suas mãos com álcool em gel e coloque as luvas.
+                    </p>
+                </div>
+                <a id="mainBtn" class="bits-btn yellow"><span>Iniciar jogo</span></a>
+            </section>
+            <section id="game" class="game-screen">
+                <h3>Temos alguns vilões <br >da saúde nessa despensa.</h3>
+                <h3>você pode nos ajudar <br> a jogá-los no lixo?</h3>
+                <div class="game-container">
+                    <div class="shelf">                        
+                        <div class="shelf-bottom">
+                            <img src="./src/assets/img/items/trash.svg" alt="trash" class="trash">
+                        </div>
+                    </div>
+                </div>
+                <img class="min-logo" src="./src/assets/img/logo/sesi-senai-logo.svg" alt="logo">
+            </section>
+            <section id="quest01" class="game-screen">
+                <h3>você consegue identificar o que é mito e o que é verdade nas frases aí embaixo?</h3>
+                <div class="question">
+                    <div class="text-card">
+                        <span>
+                            o Josué faz drinks lindos e planeja ter dois filhos e uma casa no campo.
+                        </span>
+                    </div>
+                    <div class="choices">
+                        <a class="bits-btn yellow"><span> É mito </span></a>
+                        <a class="bits-btn yellow"><span>É verdade</span></a>
+                    </div>
+                </div>
+                <img class="min-logo" src="./src/assets/img/logo/sesi-senai-logo.svg" alt="logo">
+            </section>
+        </main>
+      <script src="./src/js/script.js" type="module"></script>  
+    </body>
+</html>
