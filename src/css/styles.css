@@ -1,5 +1,14 @@
 @import './global.css';
+
 @import './8bit.css';
+@import './modal.css';
+@import './keyboard.css';
+
 @import './wait.css';
-@import './start.css';
-@import './game.css';
+@import './email.css';
+@import './title.css';
+@import './finish.css';
+
+@import './trash.css';
+@import './emoji.css';
+@import './character.css';

@@ -3,13 +3,17 @@
     src: url('../assets/fonts/Pixel Digivolve.otf')
 }
 
-body {
-    padding: 0;
-    margin: 0;
-
+* {
     font-family: 'Pixel Digivolve', cursive;
     text-align: center;
     text-transform: uppercase;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url('../assets/img/bg/background.svg');
+    background-size: contain;
 }
 
 a {
@@ -22,14 +26,25 @@ p {
     margin: 0;
 }
 
+h3 {
+    width: 95vw;
+    color: white;
+    font-size: 3em;
+    font-weight: normal;
+}
+
 section {
     width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    height: 91vh;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    position: relative;
+    background-size: cover;
 }
 
 img {
@@ -43,11 +58,44 @@ img {
     overflow: hidden;
 }
 
-.screen, .game-screen {
-    min-width: 100vw;
-    height: 100vh;
-
-    position: relative;
+.game-screen, .title-screen {
+    justify-content: space-evenly;
 }
 
+footer {
+    width: 100vw;
+    height: 10vh;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 0;
+    background: #D255FB;
+}
+
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.choices {
+    width: 50vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.choices .bits-btn{
+    width: 100%;
+    margin-bottom: .3em;
+}
+
+.choices span {
+    width: 100%;
+}

@@ -1,0 +1,26 @@
+.title-logo {
+    width: 80vw;
+    margin: 0 10vw;
+}
+
+.floating {
+    animation: floating 1.3s infinite forwards;
+}
+
+.floating span {
+    width: calc(50vw - (var(--button-size) * 2));
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(70px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}

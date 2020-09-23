@@ -1,0 +1,32 @@
+.modal-container {
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, .5);
+
+    position: absolute;
+}
+
+.modal-container.show {
+    display: flex;
+}
+
+.modal-content {
+    justify-content: space-evenly!important;
+    flex-direction: column;
+    animation: modal .5s;
+}
+
+@keyframes modal {
+    to {
+        transform: translateY(0);
+    }
+
+    from {
+        transform: translateY(-100%);
+    }
+}

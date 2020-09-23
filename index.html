@@ -5,20 +5,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Games</title>
         <link rel="stylesheet" href="./src/css/styles.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
         <main class="screen-container">
-            <section class="wait screen">
+            <section id="waiting" class="screen">
                 <img class="logo" src="./src/assets/img/logo/sesi-senai-logo.svg" alt="logo">
-                <img class="game-logo" src="./src/assets/img/logo/game-logo.svg" alt="game logo">
                 <div class="text">
                     <h3 class="title">antes de começar...</h3>
                     <p class="info">higienize suas mãos com álcool em gel e coloque as luvas.
                     </p>
                 </div>
-                <a id="mainBtn" class="bits-btn yellow"><span>Iniciar jogo</span></a>
+                <a href="#email" class="bits-btn yellow floating">
+                    <span>Start</span>
+                </a>
             </section>
-            <section id="game" class="game-screen">
+            <section id="email" class="screen">
+                    <h3>insira seu e-mail!</h3>
+                    <input id="userEmail" class="bits-input use-keyboard-input" type="email">
+                    <a id="mainBtn" class="bits-btn yellow">
+                        <span>Iniciar jogo</span>
+                    </a>
+            </section>
+            <section id="titleTrash" class="title-screen">
+                <img class="game-logo" src="./src/assets/img/logo/vs-logo.svg" alt="game logo">
+                    <a href="#gameTrash" class="bits-btn yellow floating">
+                        <span>Fase 1</span>
+                    </a>
+            </section>
+            <section id="gameTrash" class="game-screen">
                 <h3>Temos alguns vilões <br >da saúde nessa despensa.</h3>
                 <h3>você pode nos ajudar <br> a jogá-los no lixo?</h3>
                 <div class="game-container">
@@ -28,13 +43,37 @@
                         </div>
                     </div>
                 </div>
-                <img class="min-logo" src="./src/assets/img/logo/sesi-senai-logo.svg" alt="logo">
+                <div class="modal-container">
+                    <div class="modal-content text-card">
+                        <span class="text-card-content">Parabéns</span>
+                    </div>
+                </div>
             </section>
-            <section id="quest01" class="game-screen">
+            <section id="titleEmoji" class="title-screen">
+                <img class="game-logo" src="./src/assets/img/logo/dos-logo.svg" alt="game logo">
+                    <a href="#gameEmoji" class="bits-btn yellow floating">
+                        <span>Fase 2</span>
+                    </a>
+            </section>
+            <section id="gameEmoji" class="game-screen">
+                <h3>você consegue adivinhar qual curso do senai esses emojis representam?</h3>
+                    <img class="emoji" src="./src/assets/img/emojis/P01.png" alt="curso">
+                    <div class="choices">
+                        <a class="bits-btn yellow"><span>Confeitaria</span></a>
+                        <a class="bits-btn yellow"><span>Informática</span></a>
+                    </div>
+            </section>
+            <section id="titleQuestion" class="title-screen">
+                <img class="game-logo" src="./src/assets/img/logo/mov-logo.svg" alt="game logo">
+                    <a href="#gameQuestion" class="bits-btn yellow floating">
+                        <span>Fase 3</span>
+                    </a>
+            </section>
+            <section id="gameQuestion" class="game-screen">
                 <h3>você consegue identificar o que é mito e o que é verdade nas frases aí embaixo?</h3>
                 <div class="question">
                     <div class="text-card">
-                        <span>
+                        <span class="text-card-content">
                             o Josué faz drinks lindos e planeja ter dois filhos e uma casa no campo.
                         </span>
                     </div>
@@ -43,9 +82,36 @@
                         <a class="bits-btn yellow"><span>É verdade</span></a>
                     </div>
                 </div>
-                <img class="min-logo" src="./src/assets/img/logo/sesi-senai-logo.svg" alt="logo">
             </section>
+            <section id="titleCharacter" class="title-screen">
+                <img class="game-logo" src="./src/assets/img/logo/pns-logo.svg" alt="game logo">
+                    <a href="#gameCharacter" class="bits-btn yellow floating">
+                        <span>Fase 4</span>
+                    </a>
+            </section>
+            <section id="gameCharacter" class="game-screen">
+                <h3>você consegue adivinhar qual foi o curso do senai que esses personagens fizeram?</h3>
+                <div class="question">
+                    <img class="character" src="./src/assets/img/characters/CH01.png">
+                    <div class="choices">
+                        <a class="bits-btn yellow"><span>CONFEITARIA</span></a>
+                        <a class="bits-btn yellow"><span>PETRÓLEO E GÁS</span></a>
+                    </div>
+                </div>
+            </section>
+            <section id="finish" class="game-screen">
+                <div class="finish-container">
+                    <div>
+                        <img src="./src/assets/img/logo/congratulations.svg" alt="">
+                        <h3>você completou todos os desafios!</h3>
+                    </div>
+                    <h3>não esqueça de jogar as luvas no lixo e higienizar suas mãos com álcool em gel novamente!</h3>
+                </div>
+            </section>
+            <footer>
+                <img src="./src/assets/img/logo/sesi-senai-logo.svg" alt="" class="min-logo">
+            </footer>
         </main>
-      <script src="./src/js/script.js" type="module"></script>  
+      <script src="./src/js/script.js" type="module"></script>
     </body>
 </html>

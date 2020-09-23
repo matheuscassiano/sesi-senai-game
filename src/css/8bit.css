@@ -1,14 +1,18 @@
 :root {
-    --font-size: 3em;
+    --button-font-size: 3em;
     --button-size: 1em;
-    --button-width: .1em;
+    --button-width: .3em;
+
+    --input-font-size: 1.5em;
+    --input-size: 1em;
 }
 
+/* General Buttons */
 .bits-btn {
     height: 0px;
     display: flex;
     align-items: center;
-    font-size: var(--font-size);
+    font-size: var(--button-font-size);
     cursor: pointer;
     line-height: 0;
     border: calc(var(--button-size) - 1px) solid;
@@ -20,20 +24,38 @@
     background-clip: border-box;
 }
 
-.bits-btn.green {
-    border-image: url('../assets/img/buttons/border-green.svg') 50% stretch;
+/* Color Buttons */
+.bits-btn.flat-green {
+    border-image: url('../assets/img/bits/border-flat-green.svg') 49.9% stretch;
+}
+
+.bits-btn.flat-red {
+    border-image: url('../assets/img/bits/border-flat-red.svg') 49.9% stretch;
+}
+
+/* .bits-btn.green {
+    border-image: url('../assets/img/bits/border-green.svg') 50% stretch;
 }
 
 .bits-btn.green span{
-    background-image: url('../assets/img/buttons/button-green.svg');
+    background-image: url('../assets/img/bits/button-green.svg');
     background-size: contain;
-}
+} */
 
 .bits-btn.yellow {
-    border-image: url('../assets/img/buttons/border-yellow.svg') 50% stretch;
+    border-image: url('../assets/img/bits/border-yellow.svg') 50% stretch;
 }
 
 .bits-btn.yellow span{
-    background-image: url('../assets/img/buttons/button-yellow.svg');
+    background-image: url('../assets/img/bits/button-yellow.svg');
     background-size: contain;
+}
+
+/* Inputs */
+.bits-input {
+    font-size: var(--input-font-size);
+
+    border: var(--input-size) solid transparent;
+    border-radius: calc(var(--input-font-size) * 2);
+    border-image: url('../assets/img/bits/border-input.svg') 40% stretch;
 }

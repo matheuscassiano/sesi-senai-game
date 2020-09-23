@@ -1,0 +1,13 @@
+#gameCharacter h3 {
+    width: 90vw;
+    margin-bottom: 0;
+}
+
+#gameCharacter .character {
+    width: 85vw;
+    margin-bottom: 1em;
+}
+
+#gameCharacter .choices {
+    width: calc(80vw - (var(--button-size) * 2) - 5vw);
+}

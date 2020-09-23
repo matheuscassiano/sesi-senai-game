@@ -1,0 +1,87 @@
+.game-container {
+    width: 85vw;
+    height: 85vw;
+
+    display: flex;
+    justify-content: center;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../assets/img/bg/shelf-background.svg');
+}
+
+.shelf {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw;
+    grid-template-rows: 25% 25% 40%;
+    grid-template-areas:
+    ". . ."
+    ". . ."
+    "bottom bottom bottom";
+}
+
+.shelf-bottom {
+    width: 100%;
+    height: 80%;
+
+    grid-area: bottom;
+    align-self: flex-end;
+
+    position: relative;
+}
+
+.trash {
+    height: 90%;
+    
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    
+    transition: all .3s;
+    content:url('../assets/img/items/trash.svg');
+}
+
+.item{
+    width: 85%;
+    height: 65%;
+
+    align-self: flex-end;
+    justify-self: center;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.clone {
+    transform: translate(-50%, -50%);
+}
+
+.min-logo {
+    width: 40%;
+}
+
+.closed {
+    content:url('../assets/img/items/closed-trash.svg');
+}
+
+.text-card {
+    width: 80vw;
+    height: 60vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../assets/img/bg/text-card-bg.svg');
+}
+
+.text-card .text-card-content {
+    width: 80%;
+
+    color: white;
+    font-size: 3em;
+}

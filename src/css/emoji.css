@@ -1,0 +1,15 @@
+#gameEmoji h3 {
+    width: 85vw;
+}
+
+#gameEmoji .question img {
+    width: 85vw;
+}
+
+#gameEmoji .choices {
+    width: calc(85vw - (var(--button-size) * 5));
+}
+
+#gameEmoji .bits-btn {
+    transition: all .5s;
+}

@@ -1,0 +1,12 @@
+#email {
+    justify-content: center;
+}
+
+#email h3 {
+    margin-bottom: 0;
+}
+
+#userEmail{
+    width: 80vw;
+    margin: 1.5em 0;
+}
