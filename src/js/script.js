@@ -2,6 +2,7 @@ import { drag, dragstart, dragend, dragover } from './drag.js';
 import { createItem, cloneItem } from './items.js';
 import { validateEmail, saveEmail } from './email.js';
 import { shelfItems, emojiLIst, questionList, characterList } from './lists.js';
+
 import Keyboard from './keyboard.js';
 
 const mainBtn = document.querySelector('#mainBtn');
@@ -138,6 +139,10 @@ function checkQuestion(target, response) {
         return true;
     } else {
         target.parentElement.classList.add('flat-red');
+        setTimeout(() => {
+            target.parentElement.classList.remove('flat-red');
+            target.parentElement.classList.add('yellow');
+        }, 900);
         return false;
     }
 }
