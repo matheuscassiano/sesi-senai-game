@@ -126,10 +126,7 @@ function setCharacterElement() {
 function finishScreen() {
     const finish = document.querySelector('#finish');
     finish.addEventListener('click', () => {
-        setTimeout(() => { 
-            location = '/';
-            // location.reload();
-        });
+        location = '/viloes-da-saude/';
     });
 }
 
