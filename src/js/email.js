@@ -5,7 +5,15 @@ function validateEmail(email) {
 
 function saveEmail(email) {
     const emails = JSON.parse(localStorage.getItem('emails')) || [];
-    emails.push(email);
+
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+
+    const object = { email, date: `${day}/${month}/${year}` };
+    
+    emails.push(object);
     localStorage.setItem('emails', JSON.stringify(emails));
 }
 

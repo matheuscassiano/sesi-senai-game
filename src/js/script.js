@@ -1,21 +1,27 @@
-import { drag, dragstart, dragend, dragover } from './drag.js';
 import { createItem, cloneItem } from './items.js';
 import { validateEmail, saveEmail } from './email.js';
+import { drag, dragstart, dragend, dragover } from './drag.js';
 import { shelfItems, emojiLIst, questionList, characterList } from './lists.js';
 
 import Keyboard from './keyboard.js';
 
-const mainBtn = document.querySelector('#mainBtn');
-mainBtn.addEventListener('click', start);
-
 const status = {
     trash: 0,
+    fullscreen: false
+}
+
+function sizeScreen () {
+    if (!status.fullscreen) {
+        document.documentElement.requestFullscreen()
+    } else {
+        document.exitFullscreen();
+    }
+    status.fullscreen = !status.fullscreen;
 }
 
 function start() {
-    Keyboard.init();
     const email = document.querySelector('#userEmail');
-    const keyboard = document.querySelector('.keyboard');
+    const minLogo = document.querySelector('.min-logo');
     
     if (!validateEmail(email.value)) {
         return false;
@@ -25,8 +31,7 @@ function start() {
         mainBtn.href = '#titleTrash';
         mainBtn.removeEventListener('click', start);
         Keyboard.close();
-        keyboard.classList.add('keyboard--hidden');
-        setTimeout(() => { keyboard.style.display = 'none' }, 1000);
+        minLogo.style.display = 'block';
     }
 }
 
@@ -54,7 +59,7 @@ function setShelfElements() {
 function setEmojiElement() {
     const image = document.querySelector('#gameEmoji .emoji');
     const choices = document.querySelectorAll('#gameEmoji .choices a span');
-    const emojiObject = emojiLIst[randomNumber(0, 5)] || { img: 'src/assets/img/emojis/P03.png', choices: ['Mecânicaa','Informática'], response: 'Informática' };
+    const emojiObject = emojiLIst[randomNumber(0, 5)] || { img: 'src/assets/img/emojis/P03.png', choices: ['Mecânica','Informática'], response: 'Informática' };
     
     setTimeout(() => {
         const response = emojiObject.response;
@@ -62,7 +67,6 @@ function setEmojiElement() {
     
         choices.forEach( (choice, index) => {
             choice.innerHTML = emojiObject.choices[index];
-            
             choice.addEventListener('click', ({ target }) => { 
                 if (checkQuestion(target, response)) {
                     setQuestionElement();
@@ -76,23 +80,28 @@ function setEmojiElement() {
 }
 
 function setQuestionElement() {
-    const text = document.querySelector('#gameQuestion .text-card-content');
+    const text = document.querySelector('#gameQuestion h3');
+    const question = document.querySelector('#gameQuestion .text-card-content');
+    const reason = document.querySelector('#gameQuestion .text-reason');
     const choices = document.querySelectorAll('#gameQuestion .choices a span');
-    const questionObject = questionList[randomNumber(0, 5)] || { question: 'FICAR SEM COMER EMAGRECE??', choices: ['Mito','É verdade'], response: 'Mito' };
+    const questionObject = questionList[randomNumber(0, 5)] || { question: 'FICAR SEM COMER EMAGRECE??', choices: ['Mito','É verdade'], response: 'Mito', reason:'Ficar sem se alimentar pode deixar seu metabolismo mais lento, dificultando a eliminação de peso. ' };
     
     setTimeout(() => {
         const response = questionObject.response;
-        text.innerHTML = questionObject.question;
+        question.innerHTML = questionObject.question;
+        reason.innerHTML = questionObject.reason;
     
         choices.forEach( (choice, index) => {
             choice.innerHTML = questionObject.choices[index];
-
             choice.addEventListener('click', ({ target }) => {
                 if (checkQuestion(target, response)) {
                     setTimeout(() => { 
                         changePage('titleCharacter');
                         setCharacterElement() ;
                     }, 500);
+                } else {
+                    reason.classList.remove('hidden');
+                    text.classList.add('hidden');
                 }
             });
         });
@@ -108,8 +117,6 @@ function setCharacterElement() {
         const response = characterObject.response;
         image.src = characterObject.img;
     
-        console.log(response)
-
         choices.forEach( (choice, index) => {
             choice.innerHTML = characterObject.choices[index];
             choice.addEventListener('click', ({ target }) => { 
@@ -127,7 +134,7 @@ function setCharacterElement() {
 function finishScreen() {
     const finish = document.querySelector('#finish');
     finish.addEventListener('click', () => {
-        location = '/viloes-da-saude/';
+        location = '/index.html';
     });
 }
 
@@ -147,18 +154,7 @@ function checkQuestion(target, response) {
     }
 }
 
-function randomNumber(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function changePage(page, time = 2000) {
-    setTimeout(() => { location.href = `#${page}` }, time);
-}
-
 function onDragover({ target }) {
-    const modal = document.querySelector('#gameTrash .modal-container');
     const trash = document.querySelector('.trash');
     const type = target.attributes['data-healthy'].value;
     
@@ -173,9 +169,24 @@ function onDragover({ target }) {
         if (status.trash >= 3) {
             setTimeout(() => {
                 setEmojiElement();
-                // modal.classList.add('show');
                 changePage('titleEmoji');
             });
         }
     }
 }
+
+function randomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function changePage(page, time = 2000) {
+    setTimeout(() => { location.href = `#${page}` }, time);
+}
+
+const mainBtn = document.querySelector('#mainBtn');
+mainBtn.addEventListener('click', start);
+
+const sizeBtn = document.querySelector('#sizeBtn');
+sizeBtn.addEventListener('click', sizeScreen);

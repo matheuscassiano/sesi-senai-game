@@ -16,10 +16,10 @@ const emojiLIst = [
 ];
 
 const questionList = [
-    { question: 'CAFÉ FAZ MAL À SAÚDE?', choices: ['Mito','É verdade'], response: 'Mito' },
-    { question: 'FICAR SEM COMER EMAGRECE?', choices: ['Mito','É verdade'], response: 'Mito' },
-    { question: 'EXISTEM ALIMENTOS COM FUNÇÕES ESPECÍFICAS PARA PERDA DE PESO?', choices: ['Mito','É verdade'], response: 'Mito' },
-    { question: 'O OVO AUMENTA O COLESTEROL?', choices: ['Mito','É verdade'], response: 'Mito' },
+    { question: 'CAFÉ FAZ MAL À SAÚDE?', choices: ['Mito','É verdade'], response: 'Mito', reason:'O café combate a fadiga e melhora o desempenho cerebral. Beba com moderação.' },
+    { question: 'FICAR SEM COMER EMAGRECE?', choices: ['Mito','É verdade'], response: 'Mito', reason:'Ficar sem se alimentar pode deixar seu metabolismo mais lento, dificultando a eliminação de peso. ' },
+    { question: 'EXISTEM ALIMENTOS COM FUNÇÕES ESPECÍFICAS PARA PERDA DE PESO?', choices: ['Mito','É verdade'], response: 'Mito', reason:'Não existe um alimento especifico, a perda de peso acontece com déficit calórico. ' },
+    { question: 'O OVO AUMENTA O COLESTEROL?', choices: ['Mito','É verdade'], response: 'Mito', reason:'O colesterol elevado geralmente está ligado as complicações hereditárias e maus hábitos alimentares.' },
 ];
 
 const characterList = [

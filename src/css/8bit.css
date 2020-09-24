@@ -24,6 +24,14 @@
     background-clip: border-box;
 }
 
+.bits-btn.round {
+    border: var(--button-size) solid;
+}
+
+.bits-btn.round span{
+    padding: calc(var(--button-size) * 1.1) 0;
+}
+
 /* Color Buttons */
 .bits-btn.flat-green {
     border-image: url('../assets/img/bits/border-flat-green.svg') 49.9% stretch;
