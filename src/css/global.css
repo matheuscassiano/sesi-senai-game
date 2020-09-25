@@ -102,8 +102,8 @@ footer {
 
 #sizeBtn {
     position: fixed;
-    top: 1em;
-    right: 1em;
+    top: .5em;
+    right: .5em;
     z-index: 2;
 
     font-weight: bold;

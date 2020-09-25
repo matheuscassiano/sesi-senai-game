@@ -7,7 +7,7 @@ const shelfItems = [
     { id: 5, img: 'src/assets/img/items/06.svg', healthy: false },
 ];
 
-const emojiLIst = [
+const emojiList = [
     { img: 'src/assets/img/emojis/P01.png', choices: ['Confeitaria','Informática'], response: 'Confeitaria' },
     { img: 'src/assets/img/emojis/P02.png', choices: ['Mecânica','Moda e Vestuário'], response: 'Moda e Vestuário' },
     { img: 'src/assets/img/emojis/P03.png', choices: ['Mecânica','Informática'], response: 'Informática' },
@@ -29,4 +29,4 @@ const characterList = [
     { img: 'src/assets/img/characters/CH04.png', choices: ['MEIO AMBIENTE','Mecânica'], response: 'Mecânica' },
 ];
 
-export { shelfItems, emojiLIst, questionList, characterList };
+export { shelfItems, emojiList, questionList, characterList };

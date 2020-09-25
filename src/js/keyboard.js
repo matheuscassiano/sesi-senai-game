@@ -160,9 +160,6 @@ export default Keyboard = {
         this.eventHandlers.oninput = oninput;
         this.eventHandlers.onclose = onclose;
         this.elements.main.classList.remove("keyboard--hidden");
-
-        const minLogo = document.querySelector('.min-logo');
-        minLogo.style.display = 'none';
     },
 
     close() {

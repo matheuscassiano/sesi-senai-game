@@ -1,12 +1,15 @@
 import { createItem, cloneItem } from './items.js';
 import { validateEmail, saveEmail } from './email.js';
 import { drag, dragstart, dragend, dragover } from './drag.js';
-import { shelfItems, emojiLIst, questionList, characterList } from './lists.js';
+import { shelfItems, emojiList, questionList, characterList } from './lists.js';
 
 import Keyboard from './keyboard.js';
 
 const status = {
     trash: 0,
+    emoji: 0,
+    question: 0,
+    character: 0,
     fullscreen: false
 }
 
@@ -21,7 +24,7 @@ function sizeScreen () {
 
 function start() {
     const email = document.querySelector('#userEmail');
-    const minLogo = document.querySelector('.min-logo');
+    // const minLogo = document.querySelector('.min-logo');
     
     if (!validateEmail(email.value)) {
         return false;
@@ -31,7 +34,6 @@ function start() {
         mainBtn.href = '#titleTrash';
         mainBtn.removeEventListener('click', start);
         Keyboard.close();
-        minLogo.style.display = 'block';
     }
 }
 
@@ -57,61 +59,112 @@ function setShelfElements() {
 }
 
 function setEmojiElement() {
-    const image = document.querySelector('#gameEmoji .emoji');
-    const choices = document.querySelectorAll('#gameEmoji .choices a span');
-    const emojiObject = emojiLIst[randomNumber(0, 5)] || { img: 'src/assets/img/emojis/P03.png', choices: ['Mecânica','Informática'], response: 'Informática' };
+    const numbers = randomNumbers(0, emojiList.length - 2);
+    const backup = [
+        { img: 'src/assets/img/emojis/P04.png', choices: ['Informática','Mecânica'], response: 'Mecânica' },
+        { img: 'src/assets/img/emojis/P05.png', choices: ['Petróleo e Gás','Confeitaria'], response: 'Petróleo e Gás' },
+    ];
     
-    setTimeout(() => {
-        const response = emojiObject.response;
-        image.src = emojiObject.img;
-    
-        choices.forEach( (choice, index) => {
-            choice.innerHTML = emojiObject.choices[index];
+    numbers.forEach((num, numIndex) => {
+        const image = document.querySelector(`#gameEmoji0${numIndex + 1} .emoji`);
+        const choices = document.querySelectorAll(`#gameEmoji0${numIndex + 1} .choices a span`);
+
+        const item = emojiList[num] || backup[numIndex];
+        image.src = item.img;
+        
+        choices.forEach( (choice, cIndex) => {
+            choice.innerHTML = item.choices[cIndex];
             choice.addEventListener('click', ({ target }) => { 
-                if (checkQuestion(target, response)) {
-                    setQuestionElement();
-                    setTimeout(() => { 
-                        changePage('titleQuestion');
-                    }, 500);
+                if(checkQuestion(target, item.response)){
+                    status.emoji++;
                 }
-            })
+                if (checkQuestion(target, item.response) && status.emoji === 2) {
+                    setQuestionElement();
+                    changePage('titleQuestion');
+                } else if (checkQuestion(target, item.response) && status.emoji < 2) {
+                    changePage('gameEmoji02');
+                }
+
+            });
         });
     });
 }
 
 function setQuestionElement() {
-    const text = document.querySelector('#gameQuestion h3');
-    const question = document.querySelector('#gameQuestion .text-card-content');
-    const reason = document.querySelector('#gameQuestion .text-reason');
-    const choices = document.querySelectorAll('#gameQuestion .choices a span');
-    const questionObject = questionList[randomNumber(0, 5)] || { question: 'FICAR SEM COMER EMAGRECE??', choices: ['Mito','É verdade'], response: 'Mito', reason:'Ficar sem se alimentar pode deixar seu metabolismo mais lento, dificultando a eliminação de peso. ' };
-    
-    setTimeout(() => {
-        const response = questionObject.response;
-        question.innerHTML = questionObject.question;
-        reason.innerHTML = questionObject.reason;
-    
-        choices.forEach( (choice, index) => {
-            choice.innerHTML = questionObject.choices[index];
-            choice.addEventListener('click', ({ target }) => {
-                if (checkQuestion(target, response)) {
-                    setTimeout(() => { 
-                        changePage('titleCharacter');
-                        setCharacterElement() ;
-                    }, 500);
-                } else {
-                    reason.classList.remove('hidden');
-                    text.classList.add('hidden');
+    const numbers = randomNumbers(0, questionList.length - 2);
+    const backup = [
+        { question: 'EXISTEM ALIMENTOS COM FUNÇÕES ESPECÍFICAS PARA PERDA DE PESO?', choices: ['Mito','É verdade'], response: 'Mito', reason:'Não existe um alimento especifico, a perda de peso acontece com déficit calórico. ' },
+        { question: 'O OVO AUMENTA O COLESTEROL?', choices: ['Mito','É verdade'], response: 'Mito', reason:'O colesterol elevado geralmente está ligado as complicações hereditárias e maus hábitos alimentares.' },
+    ];
+
+    numbers.forEach((num, numIndex) => {
+        const text = document.querySelector(`#gameQuestion0${numIndex + 1} h3`);
+        const reason = document.querySelector(`#gameQuestion0${numIndex + 1} .text-reason`);
+        const choices = document.querySelectorAll(`#gameQuestion0${numIndex + 1} .choices a span`);
+        const question = document.querySelector(`#gameQuestion0${numIndex + 1} .text-card-content`);
+
+        const item = questionList[num] || backup[numIndex];
+        question.innerHTML = item.question;
+        reason.innerHTML = item.reason;
+        
+        choices.forEach( (choice, cIndex) => {
+            choice.innerHTML = item.choices[cIndex];
+            choice.addEventListener('click', ({ target }) => { 
+                if(checkQuestion(target, item.response)){
+                    status.question++;
                 }
+                
+                if (checkQuestion(target, item.response) && status.question === 2) {
+                    setCharacterElement();
+                    console.log('WIN Question')
+                    changePage('titleCharacter', 5000);
+                } else if (checkQuestion(target, item.response) && status.question < 2) {
+                    changePage('gameQuestion02', 5000);
+                }
+                reason.classList.remove('hidden');
+                text.classList.add('hidden');
             });
         });
     });
 }
 
 function setCharacterElement() {
+    const numbers = randomNumbers(0, characterList.length - 2);
+    const backup = [
+        { img: 'src/assets/img/characters/CH04.png', choices: ['MEIO AMBIENTE','Mecânica'], response: 'Mecânica' },
+        { img: 'src/assets/img/characters/CH03.png', choices: ['ELETRICISTA','MODA E VESTUÁRIO'], response: 'ELETRICISTA' },
+    ];
+    
+    numbers.forEach((num, numIndex) => {
+        const image = document.querySelector(`#gameCharacter0${numIndex + 1} .character`);
+        const choices = document.querySelectorAll(`#gameCharacter0${numIndex + 1} .choices a span`);
+
+        const item = characterList[num] || backup[numIndex];
+        image.src = item.img;
+        console.log(item.response)
+        
+        choices.forEach( (choice, cIndex) => {
+            choice.innerHTML = item.choices[cIndex];
+            choice.addEventListener('click', ({ target }) => { 
+                if(checkQuestion(target, item.response)){
+                    status.character++;
+                    
+                    if (checkQuestion(target, item.response) && status.character === 2) {
+                        finishScreen();
+                        changePage('finish', 500);
+                    } else if (checkQuestion(target, item.response) && status.character < 2) {
+                        changePage('gameCharacter02');
+                    }
+                }
+            });
+        });
+    });
+}
+
+function setCharacterElementr() {
     const image = document.querySelector('#gameCharacter .character');
     const choices = document.querySelectorAll('#gameCharacter .choices a span');
-    const characterObject = characterList[randomNumber(0, 5)] || { img: 'src/assets/img/characters/CH01.png', choices: ['Confeitaria','PETRÓLEO E GÁS'], response: 'Confeitaria' };
+    const characterObject = characterList[randomNumbers(0, 5)] || { img: 'src/assets/img/characters/CH01.png', choices: ['Confeitaria','PETRÓLEO E GÁS'], response: 'Confeitaria' };
     
     setTimeout(() => {
         const response = characterObject.response;
@@ -175,10 +228,17 @@ function onDragover({ target }) {
     }
 }
 
-function randomNumber(min, max) {
+function randomNumbers(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    const num1 = Math.floor(Math.random() * (max - min + 1)) + min;
+    const num2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    if (num1 !== num2) {
+        return [num1, num2];
+    } else if (num1 === num2) {
+        return randomNumbers(0, 5);
+    }
 }
 
 function changePage(page, time = 2000) {

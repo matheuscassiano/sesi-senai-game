@@ -1,24 +1,24 @@
-#gameQuestion {
+.question {
     height: 95vh;
     justify-content: center;
     z-index: 2;
 }
 
-#gameQuestion h3 {
-    margin: 0;
+.question h3 {
+    margin-top: 2em;
     margin-bottom: .5em;
 
     transition: opacity .5s;
 }
 
-#gameQuestion .text-reason {
+.question .text-reason {
     margin-top: .5em;
 }
 
-#gameQuestion .show {
+.question .show {
     opacity: 1;
 }
 
-#gameQuestion .hidden {
+.question .hidden {
     opacity: 0;
 }

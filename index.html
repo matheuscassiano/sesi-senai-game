@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Games</title>
         <link rel="stylesheet" href="./src/css/styles.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
         <main class="screen-container">
@@ -52,11 +51,19 @@
             </section>
             <section id="titleEmoji" class="title-screen">
                 <img class="game-logo" src="./src/assets/img/logo/dos-logo.png" alt="game logo">
-                    <a href="#gameEmoji" class="bits-btn yellow floating">
+                    <a href="#gameEmoji01" class="bits-btn yellow floating">
                         <span>Fase 2</span>
                     </a>
             </section>
-            <section id="gameEmoji" class="game-screen">
+            <section id="gameEmoji01" class="game-screen emoji">
+                <h3>você consegue adivinhar qual curso do senai esses emojis representam?</h3>
+                    <img class="emoji" src="./src/assets/img/emojis/P01.png" alt="curso">
+                    <div class="choices">
+                        <a class="bits-btn yellow"><span>Confeitaria</span></a>
+                        <a class="bits-btn yellow"><span>Informática</span></a>
+                    </div>
+            </section>
+            <section id="gameEmoji02" class="game-screen emoji">
                 <h3>você consegue adivinhar qual curso do senai esses emojis representam?</h3>
                     <img class="emoji" src="./src/assets/img/emojis/P01.png" alt="curso">
                     <div class="choices">
@@ -66,11 +73,24 @@
             </section>
             <section id="titleQuestion" class="title-screen">
                 <img class="game-logo" src="./src/assets/img/logo/mov-logo.png" alt="game logo">
-                    <a href="#gameQuestion" class="bits-btn yellow floating">
+                    <a href="#gameQuestion01" class="bits-btn yellow floating">
                         <span>Fase 3</span>
                     </a>
             </section>
-            <section id="gameQuestion" class="game-screen">
+            <section id="gameQuestion01" class="game-screen question">
+                <h3>você consegue identificar o que é mito e o que é verdade nas frases aí embaixo?</h3>
+                <div class="question">
+                    <div class="text-card">
+                        <span class="text-card-content">CAFÉ FAZ MAL À SAÚDE?</span>
+                    </div>
+                    <div class="choices">
+                        <a class="bits-btn yellow"><span> É mito </span></a>
+                        <a class="bits-btn yellow"><span>É verdade</span></a>
+                    </div>
+                    <h3 class="text-reason hidden">O café combate a fadiga e melhora o desempenho cerebral. Beba com moderação.</h3>
+                </div>
+            </section>
+            <section id="gameQuestion02" class="game-screen question">
                 <h3>você consegue identificar o que é mito e o que é verdade nas frases aí embaixo?</h3>
                 <div class="question">
                     <div class="text-card">
@@ -85,11 +105,21 @@
             </section>
             <section id="titleCharacter" class="title-screen">
                 <img class="game-logo" src="./src/assets/img/logo/pns-logo.png" alt="game logo">
-                    <a href="#gameCharacter" class="bits-btn yellow floating">
+                    <a href="#gameCharacter01" class="bits-btn yellow floating">
                         <span>Fase 4</span>
                     </a>
             </section>
-            <section id="gameCharacter" class="game-screen">
+            <section id="gameCharacter01" class="game-screen characters">
+                <h3>você consegue adivinhar qual foi o curso do senai que esses personagens fizeram?</h3>
+                <div class="question">
+                    <img class="character" src="./src/assets/img/characters/CH01.png">
+                    <div class="choices">
+                        <a class="bits-btn yellow"><span>CONFEITARIA</span></a>
+                        <a class="bits-btn yellow"><span>PETRÓLEO E GÁS</span></a>
+                    </div>
+                </div>
+            </section>
+            <section id="gameCharacter02" class="game-screen characters">
                 <h3>você consegue adivinhar qual foi o curso do senai que esses personagens fizeram?</h3>
                 <div class="question">
                     <img class="character" src="./src/assets/img/characters/CH01.png">
