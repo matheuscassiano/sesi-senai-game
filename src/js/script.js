@@ -187,7 +187,7 @@ function setCharacterElementr() {
 function finishScreen() {
     const finish = document.querySelector('#finish');
     finish.addEventListener('click', () => {
-        location = '/index.html';
+        location = '/viloes-da-saude/';
     });
 }
 
